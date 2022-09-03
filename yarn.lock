@@ -459,6 +459,13 @@ ds-access-tokens@^1.0.0:
     axios "^0.27.2"
     dotenv "^16.0.1"
 
+ds-services-labels@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/ds-services-labels/-/ds-services-labels-1.0.0.tgz#131dcf863225f0088c9f6c0dc7893ab6de452693"
+  integrity sha512-fWcxF3O12Wr+T7U9WcxCtzp866Gz/H+r+5qyWEaQ3sVhFYjIyVHpcnolIjfLxVd/EQuFdblY1Mj5K/Ljk5p2LQ==
+  dependencies:
+    dotenv "^16.0.1"
+
 ee-first@1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/ee-first/-/ee-first-1.1.1.tgz#590c61156b0ae2f4f0255732a158b266bc56b21d"
