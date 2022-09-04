@@ -4,8 +4,8 @@ import { Request, Response } from "express";
 import { AppDataSource } from "./data-source";
 import { Routes } from "./routes";
 import * as cors from "cors";
-import dsAccessTokens from "ds-access-tokens";
-import dsAppLabel from "ds-services-labels";
+import * as dsAccessTokens from "ds-access-tokens";
+import * as dsAppLabel from "ds-services-labels";
 import "dotenv/config";
 
 AppDataSource.initialize()
@@ -41,6 +41,6 @@ AppDataSource.initialize()
 
     app.listen(process.env.PORT);
 
-    console.log("App running on port" + process.env.PORT);
+    console.log("App running on port " + process.env.PORT);
   })
   .catch((error) => console.log(error));

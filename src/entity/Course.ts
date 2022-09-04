@@ -1,4 +1,5 @@
-import { Entity, PrimaryGeneratedColumn, Column } from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from "typeorm";
+import { Topic } from "./Topic";
 
 @Entity()
 export class Course {
@@ -6,11 +7,25 @@ export class Course {
   id: number;
 
   @Column()
-  name: string;
+  title: string;
+
+  @Column()
+  description:string
 
   @Column()
   image: string;
 
   @Column()
   bannerImage: string;
+
+  @Column()
+  addedBy: string;
+
+  @Column({
+    default: false,
+  })
+  isActive: boolean;
+
+  @OneToMany(() => Topic, (t) => t.course)
+  topics: Topic[];
 }
