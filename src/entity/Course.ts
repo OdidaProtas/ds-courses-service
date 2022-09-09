@@ -1,4 +1,10 @@
-import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from "typeorm";
+import {
+  Entity,
+  PrimaryGeneratedColumn,
+  Column,
+  OneToMany,
+  CreateDateColumn,
+} from "typeorm";
 import { Topic } from "./Topic";
 
 @Entity()
@@ -10,13 +16,13 @@ export class Course {
   title: string;
 
   @Column()
-  description:string
+  description: string;
 
   @Column()
-  image: string;
+  imageUrl: string;
 
   @Column()
-  bannerImage: string;
+  bannerUrl: string;
 
   @Column()
   addedBy: string;
@@ -25,6 +31,9 @@ export class Course {
     default: false,
   })
   isActive: boolean;
+
+  @CreateDateColumn({ name: "created_at" })
+  createdAt: Date;
 
   @OneToMany(() => Topic, (t) => t.course)
   topics: Topic[];
