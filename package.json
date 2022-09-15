@@ -21,6 +21,7 @@
   },
   "scripts": {
     "start": "ts-node src/index.ts",
+    "dev":"nodemon",
     "typeorm": "typeorm-ts-node-esm -d ./src/data-source.ts",
     "mg": "npm run typeorm migration:run",
     "mm": "npm run typeorm migration:generate src/migration/app"
