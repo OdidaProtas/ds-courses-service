@@ -5,6 +5,7 @@ import {
   OneToMany,
   CreateDateColumn,
 } from "typeorm";
+import Subject from "./Subject";
 import { Topic } from "./Topic";
 
 @Entity()
@@ -37,4 +38,7 @@ export class Course {
 
   @OneToMany(() => Topic, (t) => t.course)
   topics: Topic[];
+
+  @OneToMany(() => Subject, (s) => s.course)
+  subjects: Subject[];
 }
