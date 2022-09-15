@@ -35,7 +35,7 @@ export const Routes = [
   },
   {
     method: "get",
-    route: "subjects",
+    route: "/subjects",
     controller: SubjectsController,
     action: "all",
   },
