@@ -19,4 +19,16 @@ export class SubjectsController {
     }
     return data;
   }
+
+  async all(request: Request, response: Response, next: NextFunction) {
+    const [data, error] = await trycatch(this.subjectsRepository.find());
+    if (error) {
+      response.status(402);
+      return {
+        msg: "An error occured",
+        desc: error,
+      };
+    }
+    return data
+  }
 }

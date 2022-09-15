@@ -33,4 +33,10 @@ export const Routes = [
     controller: SubjectsController,
     action: "save",
   },
+  {
+    method: "get",
+    route: "subjects",
+    controller: SubjectsController,
+    action: "all",
+  },
 ];
