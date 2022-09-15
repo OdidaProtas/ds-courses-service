@@ -1,23 +1,36 @@
-import { CoursesController } from "./controller/CoursesController"
+import { CoursesController } from "./controller/CoursesController";
+import { SubjectsController } from "./controller/SubjectsController";
 
-export const Routes = [{
+export const Routes = [
+  {
     method: "get",
     route: "/courses",
     controller: CoursesController,
-    action: "all"
-}, {
+    action: "all",
+  },
+  {
     method: "get",
     route: "/courses/:id",
     controller: CoursesController,
-    action: "one"
-}, {
+    action: "one",
+  },
+  {
     method: "post",
     route: "/courses",
     controller: CoursesController,
-    action: "save"
-}, {
+    action: "save",
+  },
+  {
     method: "delete",
     route: "/courses/:id",
     controller: CoursesController,
-    action: "remove"
-}]
+    action: "remove",
+  },
+
+  {
+    method: "post",
+    route: "/subjects",
+    controller: SubjectsController,
+    action: "save",
+  },
+];
