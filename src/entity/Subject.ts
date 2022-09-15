@@ -9,6 +9,17 @@ export default class Subject {
   @ManyToOne(() => Course, (c) => c.subjects)
   course: Course;
 
+  @Column({ nullable: true })
+  imageUrl: string;
+
+  @Column({ nullable: true })
+  bannerUrl: string;
+
+  @Column({
+    nullable:true
+  })
+  description:string
+
   @Column()
   title: string;
 }
