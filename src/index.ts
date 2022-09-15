@@ -5,7 +5,7 @@ import { AppDataSource } from "./data-source";
 import { Routes } from "./routes";
 import * as cors from "cors";
 import * as dsAccessTokens from "ds-access-tokens";
-import * as dsAppLabel from "ds-services-labels";
+// import * as dsAppLabel from "ds-services-labels";
 import "dotenv/config";
 
 AppDataSource.initialize()
@@ -15,7 +15,7 @@ AppDataSource.initialize()
     app.use(bodyParser.json());
     app.use(cors("*"));
     // app.use(dsAccessTokens);
-    app.use(dsAppLabel);
+    // app.use(dsAppLabel);
     // register express routes from defined application routes
     Routes.forEach((route) => {
       (app as any)[route.method](
