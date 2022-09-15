@@ -12,7 +12,17 @@ export class CoursesController {
   }
 
   async one(request: Request, response: Response, next: NextFunction) {
-    return this.userRepository.findOne(request.params.id);
+    const [data, error] = await trycatch(
+      this.userRepository.findOneBy({ id: request.params.id })
+    );
+    if (error) {
+      response.status(404);
+      return {
+        msg: "An error occured",
+        desc: error,
+      };
+    }
+    return data;
   }
 
   async save(request: Request, response: Response, next: NextFunction) {
