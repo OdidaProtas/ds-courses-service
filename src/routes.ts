@@ -39,4 +39,10 @@ export const Routes = [
     controller: SubjectsController,
     action: "all",
   },
+  {
+    method: "get",
+    route: "/course-subjects",
+    controller: SubjectsController,
+    action: "courseSubjectSearch",
+  },
 ];

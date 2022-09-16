@@ -20,6 +20,32 @@ export class SubjectsController {
     return data;
   }
 
+  async courseSubjectSearch(request: Request, response: Response, next: NextFunction) {
+    const id = request.query.course_id;
+    if (!Boolean(id)) {
+      response.status(404);
+      return {
+        msg: "An error occured",
+        desc: "Course ID querystring missing",
+      };
+    }
+    const [data, error] = await trycatch(
+      this.subjectsRepository.findBy({
+        course: id,
+      })
+    );
+
+    if (error) {
+      response.status(404);
+      return {
+        desc: error,
+        msg: "An error occred",
+      };
+    }
+
+    return data;
+  }
+
   async all(request: Request, response: Response, next: NextFunction) {
     const [data, error] = await trycatch(this.subjectsRepository.find());
     if (error) {
@@ -29,6 +55,6 @@ export class SubjectsController {
         desc: error,
       };
     }
-    return data
+    return data;
   }
 }
