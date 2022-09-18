@@ -58,4 +58,17 @@ export const Routes = [
     controller: BlockController,
     action: "all",
   },
+  ,
+  {
+    method: "post",
+    route: "/articles",
+    controller: BlockController,
+    action: "saveArticles",
+  },
+  {
+    method: "get",
+    route: "/articles",
+    controller: BlockController,
+    action: "allArticles",
+  },
 ];

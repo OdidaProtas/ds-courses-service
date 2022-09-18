@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+import BlogArticle from "./BlogArticle";
 
 @Entity()
 export default class BlogTopic {
@@ -28,4 +29,7 @@ export default class BlogTopic {
     nullable: true,
   })
   slug: string;
+
+  @OneToMany(() => BlogArticle, (a) => a.category)
+  articles: BlogArticle[];
 }
