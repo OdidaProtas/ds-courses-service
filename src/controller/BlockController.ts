@@ -52,9 +52,8 @@ export default class BlockController {
 
 
   async allArticles(request: Request, response: Response, next: NextFunction) {
-    const slug = request.body.title.split(" ").join("_");
     const [data, error] = await trycatch(
-      this.blogTopicRepository.save({ ...request.body, slug })
+      this.articleRepository.find()
     );
     if (error) {
       response.status(404);
