@@ -9,7 +9,7 @@ export default class BlockController {
   private articleRepository = AppDataSource.getRepository(BlogArticle);
 
   async save(request: Request, response: Response, next: NextFunction) {
-    const slug = request.body.title.split(" ").join("_");
+    const slug = request?.body?.title?.split(" ")?.join("_");
     const [data, error] = await trycatch(
       this.blogTopicRepository.save({ ...request.body, slug })
     );
@@ -36,7 +36,7 @@ export default class BlockController {
   }
 
   async saveArticles(request: Request, response: Response, next: NextFunction) {
-    const slug = request.body.title.split(" ").join("_");
+    const slug = request?.body?.title?.split(" ")?.join("_");
     const [data, error] = await trycatch(
       this.articleRepository.save({ ...request.body, slug })
     );
