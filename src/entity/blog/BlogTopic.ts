@@ -14,12 +14,18 @@ export default class BlogTopic {
   @Column({ nullable: true })
   imageUrl: string;
 
-  @Column()
+  @Column({
+    nullable: true,
+  })
   bannerUrl: string;
 
-  @Column()
+  @Column({
+    nullable: true,
+  })
   author: string;
 
-  @Column()
+  @Column({
+    nullable: true,
+  })
   slug: string;
 }
