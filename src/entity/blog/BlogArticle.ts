@@ -18,6 +18,11 @@ export default class BlogArticle {
   @Column()
   position: string;
 
+  @Column({
+    nullable:true
+  })
+  description:string
+
   @ManyToOne(() => BlogTopic, (topic) => topic.articles)
   category: string;
 
