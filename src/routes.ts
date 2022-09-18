@@ -1,3 +1,4 @@
+import BlockController from "./controller/BlockController";
 import { CoursesController } from "./controller/CoursesController";
 import { SubjectsController } from "./controller/SubjectsController";
 
@@ -44,5 +45,17 @@ export const Routes = [
     route: "/course-subjects",
     controller: SubjectsController,
     action: "courseSubjectSearch",
+  },
+  {
+    method: "post",
+    route: "/blog-topics",
+    controller: BlockController,
+    action: "save",
+  },
+  {
+    method: "get",
+    route: "/blog-topics",
+    controller: BlockController,
+    action: "all",
   },
 ];
