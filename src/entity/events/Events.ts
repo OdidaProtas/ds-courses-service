@@ -1,4 +1,9 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import {
+  Column,
+  CreateDateColumn,
+  Entity,
+  PrimaryGeneratedColumn,
+} from "typeorm";
 
 enum MODE {
   "VIRTUAL_ONLY" = "virtual_only",
@@ -23,8 +28,11 @@ export default class Events {
   @Column()
   author: string;
 
-  @Column({ type: "timestamptz" })
-  dtwtimezone: Date;
+  @CreateDateColumn({
+    type: "timestamp",
+    default: () => "CURRENT_TIMESTAMP(6)",
+  })
+  created_at: Date;
 
   @Column({ nullable: true })
   maxAudience: number;

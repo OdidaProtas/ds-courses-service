@@ -4,6 +4,7 @@ import { CoursesController } from "./controller/CoursesController";
 import EventsController from "./controller/EventsController";
 import StudentsController from "./controller/StudentsController";
 import { SubjectsController } from "./controller/SubjectsController";
+import { AboutController } from "./entity/about";
 
 export const Routes = [
   {
@@ -108,6 +109,19 @@ export const Routes = [
     method: "get",
     route: "/events",
     controller: EventsController,
+    action: "all",
+  },
+  ,
+  {
+    method: "post",
+    route: "/about",
+    controller: AboutController,
+    action: "save",
+  },
+  {
+    method: "get",
+    route: "/about",
+    controller: AboutController,
     action: "all",
   },
 ];
