@@ -1,6 +1,7 @@
 import AssesmentsController from "./controller/AssesmentsController";
 import BlockController from "./controller/BlockController";
 import { CoursesController } from "./controller/CoursesController";
+import EventsController from "./controller/EventsController";
 import StudentsController from "./controller/StudentsController";
 import { SubjectsController } from "./controller/SubjectsController";
 
@@ -97,6 +98,16 @@ export const Routes = [
     controller: AssesmentsController,
     action: "all",
   },
-  
-  
-]
+  {
+    method: "post",
+    route: "/events",
+    controller: EventsController,
+    action: "save",
+  },
+  {
+    method: "get",
+    route: "/events",
+    controller: EventsController,
+    action: "all",
+  },
+];
