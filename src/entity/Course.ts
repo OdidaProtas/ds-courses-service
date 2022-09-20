@@ -4,7 +4,9 @@ import {
   Column,
   OneToMany,
   CreateDateColumn,
+  ManyToOne,
 } from "typeorm";
+import CourseCategories from "./CourseCategories";
 import Subject from "./Subject";
 import { Topic } from "./Topic";
 
@@ -41,4 +43,7 @@ export class Course {
 
   @OneToMany(() => Subject, (s) => s.course)
   subjects: Subject[];
+
+  @ManyToOne(() => CourseCategories, (c) => c.courses)
+  category: CourseCategories;
 }

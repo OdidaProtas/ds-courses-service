@@ -3,7 +3,7 @@ import "dotenv/config";
 import { DataSource } from "typeorm";
 
 export const AppDataSource = new DataSource({
-  type: "postgres",
+type: "postgres",
   host: process.env.DREAMER_CODES_AUTH_DATABASE_HOST,
   port: Number(process.env.DREAMER_CODES_AUTH_DATABASE_PORT),
   username: process.env.DREAMER_CODES_DATABASE_USERNAME,
