@@ -53,6 +53,7 @@ export class CoursesController {
       return {
         shouldUpdate: true,
         which: "courses",
+        hehe:true
       };
     }
 
