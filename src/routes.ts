@@ -141,6 +141,6 @@ export const Routes = [
     method: "get",
     route: "/check_stale/:length",
     controller: CourseCategoryController,
-    action: "checkStale",
+    action: "checkState",
   },
 ];
