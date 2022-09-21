@@ -43,6 +43,26 @@ export class CoursesController {
     let userToRemove = await this.userRepository.findOneBy({
       id: request.params.id,
     });
-    await this.userRepository.remove(userToRemove);
+    return await this.userRepository.remove(userToRemove);
+  }
+
+  async checkState(request: Request, response: Response, next: NextFunction) {
+    const conditions = {};
+    const [data, error] = await trycatch(this.userRepository.count(conditions));
+    if (error) {
+      return {
+        shouldUpdate: true,
+      };
+    }
+
+    const uiDataLength = Number(request.params.length);
+    if (uiDataLength === data) {
+      return {
+        shouldUpdate: false,
+      };
+    }
+    return {
+      shouldUpdate: true,
+    };
   }
 }
