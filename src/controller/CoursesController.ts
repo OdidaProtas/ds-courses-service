@@ -52,6 +52,7 @@ export class CoursesController {
     if (error) {
       return {
         shouldUpdate: true,
+        which: "courses",
       };
     }
 
@@ -59,10 +60,12 @@ export class CoursesController {
     if (uiDataLength === data) {
       return {
         shouldUpdate: false,
+        which: "/courses",
       };
     }
     return {
       shouldUpdate: true,
+      which: "/courses",
     };
   }
 }
