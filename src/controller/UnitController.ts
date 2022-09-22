@@ -2,9 +2,10 @@ import { AppDataSource } from "../data-source";
 import { Request, Response, NextFunction } from "express";
 import trycatch from "../utils/trycatch";
 import Subject from "../entity/Subject";
+import { Unit } from "../entity/Unit";
 
 export default class UnitsController {
-  private unitsRepository = AppDataSource.getRepository(UnitsController);
+  private unitsRepository = AppDataSource.getRepository(Unit);
   private subjectsRepository = AppDataSource.getRepository(Subject);
 
   async save(request: Request, response: Response, next: NextFunction) {
