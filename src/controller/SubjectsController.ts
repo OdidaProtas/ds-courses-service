@@ -8,6 +8,24 @@ export class SubjectsController {
   private subjectsRepository = AppDataSource.getRepository(Subject);
   private unitsRepository = AppDataSource.getRepository(Unit);
 
+  async item(request: Request, response: Response, next: NextFunction) {
+    const id = request.params.id;
+
+    const [data, err] = await trycatch(
+      this.subjectsRepository.find({ where: { id } })
+    );
+
+    if (err || !Boolean(data.length)) {
+      response.status(404);
+      return {
+        msg: "An error occured",
+        desc: err,
+      };
+    }
+
+    return data;
+  }
+
   async save(request: Request, response: Response, next: NextFunction) {
     const [data, error] = await trycatch(
       this.subjectsRepository.save(request.body)

@@ -158,6 +158,12 @@ export const Routes = [
   },
   {
     method: "get",
+    route: "/subjects/:id",
+    controller: SubjectsController,
+    action: "item",
+  },
+  {
+    method: "get",
     route: "/check_stale/:length",
     controller: CourseCategoryController,
     action: "checkState",
