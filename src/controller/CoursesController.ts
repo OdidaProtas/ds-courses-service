@@ -57,7 +57,7 @@ export class CoursesController {
       };
     }
 
-    const uiDataLength = Number(request.params.length);
+    const uiDataLength = parseInt(request.params.length);
     if (uiDataLength === data) {
       return {
         shouldUpdate: false,

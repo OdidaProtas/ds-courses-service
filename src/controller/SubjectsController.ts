@@ -2,9 +2,11 @@ import { AppDataSource } from "../data-source";
 import Subject from "../entity/Subject";
 import { Request, Response, NextFunction } from "express";
 import trycatch from "../utils/trycatch";
+import { Unit } from "../entity/Unit";
 
 export class SubjectsController {
   private subjectsRepository = AppDataSource.getRepository(Subject);
+  private unitsRepository = AppDataSource.getRepository(Unit);
 
   async save(request: Request, response: Response, next: NextFunction) {
     const [data, error] = await trycatch(
@@ -20,7 +22,11 @@ export class SubjectsController {
     return data;
   }
 
-  async courseSubjectSearch(request: Request, response: Response, next: NextFunction) {
+  async courseSubjectSearch(
+    request: Request,
+    response: Response,
+    next: NextFunction
+  ) {
     const id = request.query.course_id;
     if (!Boolean(id)) {
       response.status(404);
@@ -48,6 +54,21 @@ export class SubjectsController {
 
   async all(request: Request, response: Response, next: NextFunction) {
     const [data, error] = await trycatch(this.subjectsRepository.find());
+    if (error) {
+      response.status(402);
+      return {
+        msg: "An error occured",
+        desc: error,
+      };
+    }
+    return data;
+  }
+
+  async units(request: Request, response: Response, next: NextFunction) {
+    const course = request.params.id;
+    const [data, error] = await trycatch(
+      this.subjectsRepository.find({ where: course })
+    );
     if (error) {
       response.status(402);
       return {

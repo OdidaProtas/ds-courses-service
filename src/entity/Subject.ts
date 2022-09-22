@@ -1,5 +1,12 @@
-import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
+import {
+  Column,
+  Entity,
+  ManyToOne,
+  OneToMany,
+  PrimaryGeneratedColumn,
+} from "typeorm";
 import { Course } from "./Course";
+import { Unit } from "./Unit";
 
 @Entity()
 export default class Subject {
@@ -16,10 +23,13 @@ export default class Subject {
   bannerUrl: string;
 
   @Column({
-    nullable:true
+    nullable: true,
   })
-  description:string
+  description: string;
 
   @Column()
   title: string;
+
+  @OneToMany(() => Unit, (u) => u.subject)
+  units: Unit[];
 }

@@ -41,6 +41,12 @@ export const Routes = [
   },
   {
     method: "get",
+    route: "/subjects/:id/units",
+    controller: SubjectsController,
+    action: "units",
+  },
+  {
+    method: "get",
     route: "/subjects",
     controller: SubjectsController,
     action: "all",
