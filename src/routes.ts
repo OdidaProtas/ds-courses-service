@@ -5,6 +5,7 @@ import { CoursesController } from "./controller/CoursesController";
 import EventsController from "./controller/EventsController";
 import StudentsController from "./controller/StudentsController";
 import { SubjectsController } from "./controller/SubjectsController";
+import UnitsController from "./controller/UnitController";
 import { AboutController } from "./entity/about";
 
 export const Routes = [
@@ -141,6 +142,18 @@ export const Routes = [
     method: "get",
     route: "/courses_categories",
     controller: CourseCategoryController,
+    action: "all",
+  },
+  {
+    method: "post",
+    route: "/units",
+    controller: UnitsController,
+    action: "save",
+  },
+  {
+    method: "get",
+    route: "/units",
+    controller: UnitsController,
     action: "all",
   },
   {
