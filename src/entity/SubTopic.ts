@@ -1,6 +1,5 @@
-import { Column, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
 import { Lesson } from "./Lesson";
-import { Topic } from "./Topic";
 
 @Entity()
 export default class SubTopic {
@@ -11,11 +10,21 @@ export default class SubTopic {
   title: string;
 
   @Column()
-  description:string
+  description: string;
 
-  @ManyToOne(() => Topic, (t) => t.subTopics)
-  topic: Topic[];
+  @Column({ nullable: true })
+  image: string;
 
-  @OneToMany(()=>Lesson,l=>l.subTopic)
-  lessons:Lesson[]
+  @Column({
+    nullable: true,
+  })
+  bannerImage: string;
+
+  @Column({
+    default: false,
+  })
+  isTask: boolean;
+
+  @ManyToOne(() => Lesson, (l) => l.subTopics)
+  lesson: string;
 }

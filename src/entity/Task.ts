@@ -6,6 +6,6 @@ export class Task {
   @PrimaryGeneratedColumn("uuid")
   id: string;
 
-  @ManyToOne(()=>Lesson,l=>l.tasks)
-  lesson:Lesson[]
+  // @ManyToOne(()=>Lesson,l=>l.tasks)
+  // lesson:Lesson[]
 }

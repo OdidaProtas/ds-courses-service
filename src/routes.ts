@@ -3,8 +3,10 @@ import BlockController from "./controller/BlockController";
 import CourseCategoryController from "./controller/CourseCategory";
 import { CoursesController } from "./controller/CoursesController";
 import EventsController from "./controller/EventsController";
+import LessonsController from "./controller/LessonController";
 import StudentsController from "./controller/StudentsController";
 import { SubjectsController } from "./controller/SubjectsController";
+import SubTopicController from "./controller/SubTopicController";
 import UnitsController from "./controller/UnitController";
 import { AboutController } from "./entity/about";
 
@@ -154,6 +156,30 @@ export const Routes = [
     method: "get",
     route: "/units",
     controller: UnitsController,
+    action: "all",
+  },
+  {
+    method: "post",
+    route: "/subtopics",
+    controller: SubTopicController,
+    action: "save",
+  },
+  {
+    method: "get",
+    route: "/subtopics",
+    controller: SubTopicController,
+    action: "all",
+  },
+  {
+    method: "post",
+    route: "/lessons",
+    controller: LessonsController,
+    action: "save",
+  },
+  {
+    method: "get",
+    route: "/lessons",
+    controller: LessonsController,
     action: "all",
   },
   {

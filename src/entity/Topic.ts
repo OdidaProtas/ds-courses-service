@@ -6,6 +6,7 @@ import {
   PrimaryGeneratedColumn,
 } from "typeorm";
 import { Course } from "./Course";
+import { Lesson } from "./Lesson";
 import SubTopic from "./SubTopic";
 
 @Entity()
@@ -30,6 +31,6 @@ export class Topic {
   @ManyToOne(() => Course, (c) => c.topics)
   course: Course;
 
-  @OneToMany(() => SubTopic, (s) => s.topic)
-  subTopics: SubTopic[];
+  @OneToMany(() => Lesson, (l) => l.topic)
+  lessons: Lesson[];
 }
