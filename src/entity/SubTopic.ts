@@ -13,12 +13,12 @@ export default class SubTopic {
   description: string;
 
   @Column({ nullable: true })
-  image: string;
+  imageUrl: string;
 
   @Column({
     nullable: true,
   })
-  bannerImage: string;
+  bannerUrl: string;
 
   @Column({
     default: false,

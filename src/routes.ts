@@ -165,6 +165,12 @@ export const Routes = [
     action: "save",
   },
   {
+    method: "update",
+    route: "/subtopics/:id",
+    controller: SubTopicController,
+    action: "update",
+  },
+  {
     method: "get",
     route: "/subtopics",
     controller: SubTopicController,
