@@ -165,7 +165,7 @@ export const Routes = [
     action: "save",
   },
   {
-    method: "update",
+    method: "put",
     route: "/subtopics/:id",
     controller: SubTopicController,
     action: "update",

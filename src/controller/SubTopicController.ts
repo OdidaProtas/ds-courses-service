@@ -25,6 +25,13 @@ export default class SubTopicController {
 
   async update(request: Request, response: Response, next: NextFunction) {
     const id = request.params.id;
+    if (!id) {
+      response.status(404);
+      return {
+        msg: "An error occured",
+        desc: "Record id is required",
+      };
+    }
     const slug = request?.body?.title?.split(" ")?.join("_");
     const [data, error] = await trycatch(
       this.subtopicRepository.save({ ...request.body, slug, id })
