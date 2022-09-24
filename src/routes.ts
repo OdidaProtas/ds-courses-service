@@ -171,6 +171,12 @@ export const Routes = [
     action: "all",
   },
   {
+    method: "get",
+    route: "/subtopics/:id",
+    controller: SubTopicController,
+    action: "one",
+  },
+  {
     method: "post",
     route: "/lessons",
     controller: LessonsController,

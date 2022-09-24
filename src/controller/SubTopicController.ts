@@ -23,6 +23,20 @@ export default class SubTopicController {
     return data;
   }
 
+  async one(request: Request, response: Response, next: NextFunction) {
+    const [data, error] = await trycatch(
+      this.subtopicRepository.find({ where: { id: request.params.id } })
+    );
+    if (error) {
+      response.status(404);
+      return {
+        msg: "An error occured",
+        desc: error,
+      };
+    }
+    return data;
+  }
+
   async all(request: Request, response: Response, next: NextFunction) {
     const [data, error] = await trycatch(this.subtopicRepository.find());
     if (error) {
