@@ -48,7 +48,10 @@ export default class SubTopicController {
 
   async one(request: Request, response: Response, next: NextFunction) {
     const [data, error] = await trycatch(
-      this.subtopicRepository.find({ where: { id: request.params.id } })
+      this.subtopicRepository.find({
+        where: { id: request.params.id },
+        relations: ["lessons"],
+      })
     );
     if (error) {
       response.status(404);
